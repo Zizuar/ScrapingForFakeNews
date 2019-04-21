@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const db = require('./models');
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 const app = express();
 
 app.use(logger('dev'));
@@ -39,7 +39,7 @@ app.get('/all', function (req, res) {
     })
 })
 
-app.get('/articles', function (req, res) {
+app.get('/article', function (req, res) {
     db.Article.find({}).then(function (dbArticle) {
         res.json(dbArticle);
     }).catch(function (err) {
@@ -47,7 +47,7 @@ app.get('/articles', function (req, res) {
     });
 });
 
-app.post('/articles/:id', function (req, res) {
+app.post('/article/:id', function (req, res) {
     let id = req.params.id
     db.Article.updateOne({ _id: id }, { $set: { favorited: true } }, function (error, edited) {
         if (error) {
@@ -113,5 +113,5 @@ app.post('/comments/:id', function (req, res) {
 })
 
 app.listen(PORT, function () {
-    console.log("App running on port " + PORT + "!");
+    console.log("LCARS Link Established: running on port " + PORT + "!");
 });

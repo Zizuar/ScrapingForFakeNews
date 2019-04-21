@@ -5,12 +5,12 @@ $(document).ready(function () {
         $.getJSON('/article', function (data) {
             $('.article').empty()
             for (let i = 0; i < 20; i++) {
-                if (data[i].favorited) {
+                if (data[i].favorite) {
                     let displayDiv = $('<div>').append(
                         $('<h3>').text(data[i].title),
                         $('<img>').attr('src', data[i].image).attr('width', '200px'),
                         $('<p>').text(data[i].description),
-                        $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                        $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                         $('<p>').text('Article has been Saved').addClass('savedAlert')
                     ).addClass('articleDiv').attr('data-id', data[i]._id)
                     $('.article').append(displayDiv)
@@ -19,7 +19,7 @@ $(document).ready(function () {
                         $('<h3>').text(data[i].title),
                         $('<img>').attr('src', data[i].image).attr('width', '200px'),
                         $('<p>').text(data[i].description),
-                        $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                        $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                         $('<button>').text('Save Article').addClass('saveButton').attr('type', 'submit').attr('data-id', data[i]._id)
                     ).addClass('articleDiv').attr('data-id', data[i]._id)
                     $('.article').append(displayDiv)
@@ -41,12 +41,12 @@ $('.deleteArticles').on('click', function (e) {
             $.getJSON('/article', function (data) {
                 $('.article').empty()
                 for (let i = 0; i < 20; i++) {
-                    if (data[i].favorited) {
+                    if (data[i].favorite) {
                         let displayDiv = $('<div>').append(
                             $('<h3>').text(data[i].title),
                             $('<img>').attr('src', data[i].image).attr('width', '200px'),
                             $('<p>').text(data[i].description),
-                            $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                            $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                             $('<p>').text('Article saved').addClass('savedAlert')
                         ).addClass('articleDiv').attr('data-id', data[i]._id)
                         $('.article').append(displayDiv)
@@ -55,7 +55,7 @@ $('.deleteArticles').on('click', function (e) {
                             $('<h3>').text(data[i].title),
                             $('<img>').attr('src', data[i].image).attr('width', '200px'),
                             $('<p>').text(data[i].description),
-                            $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                            $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                             $('<button>').text('Save Article').addClass('saveButton').attr('type', 'submit').attr('data-id', data[i]._id)
                         ).addClass('articleDiv').attr('data-id', data[i]._id)
                         $('.article').append(displayDiv)
@@ -73,14 +73,14 @@ $('.refresh').on('click', function (e) {
     $.getJSON('/all', function (data) {
         console.log(data)
     })
-    $.getJSON('/article', function (data) {
+    $.getJSON('/Article', function (data) {
         for (let i = 0; i < 20; i++) {
-            if (data[i].favorited) {
+            if (data[i].favorite) {
                 let displayDiv = $('<div>').append(
                     $('<h3>').text(data[i].title),
                     $('<img>').attr('src', data[i].image).attr('width', '200px'),
                     $('<p>').text(data[i].description),
-                    $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                    $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                     $('<p>').text('Article has been Saved').addClass('savedAlert')
                 ).addClass('articleDiv').attr('data-id', data[i]._id)
                 $('.article').append(displayDiv)
@@ -89,7 +89,7 @@ $('.refresh').on('click', function (e) {
                     $('<h3>').text(data[i].title),
                     $('<img>').attr('src', data[i].image).attr('width', '200px'),
                     $('<p>').text(data[i].description),
-                    $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                    $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                     $('<button>').text('Save Article').addClass('saveButton').attr('type', 'submit').attr('data-id', data[i]._id)
                 ).addClass('articleDiv').attr('data-id', data[i]._id)
                 $('.article').append(displayDiv)
@@ -97,8 +97,6 @@ $('.refresh').on('click', function (e) {
         }
     })
 })
-
-
 
 $('.savedArticles').on('click', function (e) {
     e.preventDefault();
@@ -109,7 +107,7 @@ $('.savedArticles').on('click', function (e) {
                 $('<h3>').text(data[i].title),
                 $('<img>').attr('src', data[i].image).attr('width', '200px'),
                 $('<p>').text(data[i].description),
-                $('<a>').text('Go to the article!').attr('href', 'http://www.nintendolife.com/' + data[i].link),
+                $('<a>').text('Go to the article!').attr('href', 'https://news.gallup.com/' + data[i].link),
                 $('<button>').text('Add a Comment').addClass('commentButton').attr('tybpe', 'submit').attr('data-id', data[i]._id),
                 $('<button>').text('Delete Article').addClass('deleteButton').attr('type', 'submit').attr('data-id', data[i]._id),
                 $('<div>').addClass('commentDiv')
