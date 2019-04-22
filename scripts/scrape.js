@@ -10,7 +10,7 @@ var scrape = function() {
         $("div.copy").each(function(i, element) {
             var title = $(this).find("h3").text().trim();
             var linkAddy = $(this).find("a").attr("href");
-            var synop = $(this).find("p").hasClass(className: "item-synopsis").text().trim();
+            var synop = $(this).find("p").hasClass("item-synopsis").text().trim();
 
             if (title && linkAddy && synop) {
                 var commonData = {

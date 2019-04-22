@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.getJSON('/all', function (data) {
+    $.getJSON('/', function (data) {
         console.log(data)
     }).then(function () {
         $.getJSON('/Article', function (data) {
@@ -38,7 +38,7 @@ $('.deleteArticles').on('click', function (e) {
         $.getJSON('/all', function (data) {
             console.log(data)
         }).then(function () {
-            $.getJSON('/article', function (data) {
+            $.getJSON('/Article', function (data) {
                 $('.article').empty()
                 for (let i = 0; i < 20; i++) {
                     if (data[i].favorite) {
@@ -122,7 +122,7 @@ $(document).on('click', '.saveButton', function (e) {
     let thisId = $(this).attr('data-id');
     $.ajax({
         method: "POST",
-        url: "/article/" + thisId,
+        url: "/Article/" + thisId,
     }).then(function (data) {
         console.log(data)
     })
@@ -156,7 +156,7 @@ $(document).on('click', '.commentButton', function (e) {
     )
     $.ajax({
         method: 'GET',
-        url: '/article/' + thisId
+        url: '/Article/' + thisId
     }).then(function (data) {
         $('.modalTitle').text(data.title)
         if (data.comment) {
@@ -183,7 +183,7 @@ $(document).on('click', '.commentSubmit', function () {
     let thisId = $(this).attr('data-id');
     $.ajax({
         method: 'POST',
-        url: '/comments/' + thisId,
+        url: '/Comment/' + thisId,
         data: {
             title: $('#titleInput').val(),
             body: $('#bodyInput').val()
