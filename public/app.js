@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.getJSON('/all', function (data) {
         console.log(data)
     }).then(function () {
-        $.getJSON('/article', function (data) {
+        $.getJSON('/Article', function (data) {
             $('.article').empty()
             for (let i = 0; i < 20; i++) {
                 if (data[i].favorite) {

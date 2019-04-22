@@ -2,16 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let dbArticle = new Schema({
     title: {
-        type: String
+        type: String,
+        required:true,
+        unique: { index: {unique: true }}
     },
     link: {
-        type: String
+        type: String,
+        required: true
     },
-    description: {
+    synopsis: {
         type: String
     },
     image: {
         type: String
+    },
+    date: {
+        type: Date,
+        default: Date.now
     },
     favorite: {
         type: Boolean,
